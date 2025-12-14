@@ -1,0 +1,123 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f7ff;
+} */
+
+/* Login Page */
+/* .login-box, .dashboard-box, .upload-box {
+    width: 380px;
+    margin: 70px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #2d6cdf;
+}
+
+h3 {
+    color: #2563eb;
+    margin-bottom: 5px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #2563eb;
+}
+
+button, .btn {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover, .btn:hover {
+    background: #1d4ed8;
+}
+
+a.btn {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+} */
+
+
+
+/* Card Style */
+.login-card {
+    background-color: #e6f0ff; /* light blue inside */
+    border: 2px solid #003366; /* dark blue border */
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Input Style */
+.input-custom {
+    border-radius: 10px;
+    border: 1.5px solid #007bff; /* light blue border */
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.input-custom:focus {
+    border-color: #003366; /* dark blue on focus */
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.5);
+    outline: none;
+}
+
+/* Button Style */
+.btn-custom {
+    background-color: #003366; /* dark blue */
+    color: #fff;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3; /* lighter blue on hover */
+    color: #fff;
+}
+
+/* Card Title */
+.card-title {
+    color: #003366;
+    font-weight: bold;
+}
+
+/* Links */
+a {
+    color: #003366;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

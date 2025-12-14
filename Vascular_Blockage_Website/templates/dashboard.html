@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+  <div class="col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="card-title text-center mb-4">Medical Report Summary</h3>
+
+        <!-- Patient Details -->
+        <div class="mb-3">
+          <h5>Patient Details</h5>
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Name:</strong> {{ patient_name }}</li>
+            <li class="list-group-item"><strong>Age:</strong> {{ age }}</li>
+            <li class="list-group-item"><strong>Gender:</strong> {{ gender }}</li>
+            <li class="list-group-item"><strong>Blood Pressure:</strong> {{ bp }}</li>
+            <li class="list-group-item"><strong>Sugar Level:</strong> {{ sugar }}</li>
+          </ul>
+        </div>
+
+        <!-- Symptoms -->
+        <div class="mb-3">
+          <h5>Symptoms</h5>
+          <ul class="list-group">
+            {% for s in symptoms %}
+              <li class="list-group-item">{{ s }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Diagnosis -->
+        <div class="mb-3">
+          <h5>Diagnosis</h5>
+          <div class="alert {% if diagnosis.startswith('Blockage') %}alert-danger{% else %}alert-success{% endif %}">
+            {{ diagnosis }}
+          </div>
+        </div>
+
+        <!-- Download PDF -->
+        <div class="text-center">
+          <a href="{{ pdf_url }}" class="btn btn-primary-custom">Download Detailed PDF Report</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

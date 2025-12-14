@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRI Summary Report</title>
+    <style>
+        body {
+            background:#f5faff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .report-box {
+            background: white;
+            padding: 30px;
+            max-width: 750px;
+            margin: auto;
+            border-radius: 12px;
+            border: 4px solid #007bff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #003b75;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #003b75;
+            font-weight: 700;
+            margin-top: 25px;
+        }
+        .info-box p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .highlight {
+            font-size: 22px;
+            font-weight: 900;
+            color: black;
+            padding: 15px;
+            text-align: center;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #d6e4ff;
+            margin: 25px 0;
+        }
+
+        /* Download Button Styling */
+        .download-btn {
+            display: block;
+            margin: 20px auto;
+            width: 220px;
+            text-align: center;
+            padding: 12px 0;
+            border: 3px solid #007bff; /* Blue border */
+            color: #007bff; /* Blue text */
+            background: white; /* White box */
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px #0056b3; /* 3D shadow effect */
+            transition: all 0.2s ease-in-out;
+        }
+
+        .download-btn:hover {
+            animation: blink 1s infinite;
+            transform: translateY(2px); /* Slight press effect */
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% {
+                color: #007bff;
+                background: white;
+            }
+            25%, 75% {
+                color: white;
+                background: #007bff;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="report-box">
+
+    <h2>MRI Blockage Summary Report</h2>
+
+    <!-- Patient Info -->
+    <h3>Patient Information</h3>
+    <div class="info-box">
+        <p><strong>Name:</strong> {{ patient_name }}</p>
+        <p><strong>Age:</strong> {{ age }}</p>
+        <p><strong>Gender:</strong> {{ gender }}</p>
+        <p><strong>Blood Pressure:</strong> {{ bp }}</p>
+        <p><strong>Sugar Level:</strong> {{ sugar }}</p>
+        <p><strong>Symptoms:</strong> {{ symptoms }}</p>
+    </div>
+
+    <hr>
+
+    <!-- Health Status Summary -->
+    <h3>Health Status Summary</h3>
+    <div class="info-box">
+        <p>
+            <strong>Blood Pressure Status:</strong>
+            {% if bp|int < 90 %}
+                Low
+            {% elif bp|int >= 90 and bp|int <= 120 %}
+                Normal
+            {% else %}
+                High
+            {% endif %}
+        </p>
+        <p>
+            <strong>Sugar Level Status:</strong>
+            {% if sugar|int < 90 %}
+                Low
+            {% elif sugar|int >= 90 and sugar|int <= 140 %}
+                Normal
+            {% else %}
+                High
+            {% endif %}
+        </p>
+    </div>
+
+    <hr>
+
+    <!-- MRI Result -->
+    <h3>MRI Results</h3>
+    <p class="highlight">{{ prediction }}</p>
+
+    <p style="margin-top:20px; font-size:16px;">
+        {% if "No Blockage" in prediction %}
+            Your MRI scan shows <strong>no signs of blockage</strong>. Continue your usual health routine,
+            maintain good diet, exercise, and do regular checkups for safety.
+        {% else %}
+            Your MRI scan indicates a <strong>possible blockage</strong>. It is strongly recommended to consult a
+            certified medical specialist immediately for further evaluation.
+        {% endif %}
+    </p>
+
+    <!-- Download Report Button -->
+    <a href="/reports/{{ pdf_name }}" class="download-btn">
+        Download Full Report
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .login-card {
+        border: 2px solid #1e90ff; /* neat blue border */
+        border-radius: 15px;
+        background: #f5fbff; /* light blue/white mix */
+        padding: 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .login-title {
+        font-weight: 700;
+        color: #0b66c3;
+    }
+    .form-label {
+        color: #0b3c6c;
+        font-weight: 600;
+    }
+    .btn-login {
+        background-color: #0b66c3;
+        border: none;
+        color: white;
+        font-weight: 600;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .btn-login:hover {
+        background-color: #084a94;
+    }
+</style>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="login-card">
+            <h3 class="text-center login-title mb-4">Login to Your Account</h3>
+
+            <form method="POST" action="{{ url_for('login') }}">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+
+                {% if error %}
+                <p class="text-danger text-center">{{ error }}</p>
+                {% endif %}
+
+                <button type="submit" class="btn btn-login w-100">Login</button>
+            </form>
+
+            <p class="mt-3 text-center">
+                Don't have an account? <a href="/register">Register Here</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

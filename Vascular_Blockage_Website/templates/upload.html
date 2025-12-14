@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+  <div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="card-title text-center mb-4">Upload Your MRI Scan</h3>
+
+        <form method="POST" enctype="multipart/form-data" action="/upload">
+          <!-- Doctor Info for medical professional -->
+          {% if option == 'medical' %}
+          <div class="mb-3">
+            <label for="doctor_name" class="form-label">Doctor Name</label>
+            <input type="text" class="form-control" id="doctor_name" name="doctor_name"
+                   value="{{ doctor_name }}" placeholder="Dr. John Doe" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="specialization" class="form-label">Specialization</label>
+            <input type="text" class="form-control" id="specialization" name="specialization"
+                   value="{{ specialization }}" placeholder="Cardiologist" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="license" class="form-label">License Number</label>
+            <input type="text" class="form-control" id="license" name="license"
+                   value="{{ license_num }}" placeholder="AB12345" required>
+          </div>
+          {% endif %}
+
+          <!-- Patient Info -->
+          <div class="mb-3">
+            <label for="patient_name" class="form-label">Patient Name</label>
+            <input type="text" class="form-control" id="patient_name" name="patient_name"
+                   value="{{ patient_name }}" placeholder="Enter patient name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age" name="age"
+                   placeholder="e.g., 45" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select class="form-select" id="gender" name="gender" required>
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="bp" class="form-label">Blood Pressure</label>
+            <input type="text" class="form-control" id="bp" name="bp"
+                   placeholder="e.g., 120/80 mmHg" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="sugar" class="form-label">Sugar Level</label>
+            <input type="text" class="form-control" id="sugar" name="sugar"
+                   placeholder="e.g., 90 mg/dL" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="symptoms" class="form-label">Symptoms</label>
+            <input type="text" class="form-control" id="symptoms" name="symptoms"
+                   placeholder="e.g., chest pain, dizziness" required>
+          </div>
+
+          <!-- MRI Upload -->
+          <div class="mb-3">
+            <label for="image" class="form-label">Upload MRI Image</label>
+            <input type="file" class="form-control" id="image" name="image"
+                   accept="image/*" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary-custom w-100">Generate Report</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
